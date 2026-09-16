@@ -33,7 +33,7 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on port ${PORT}`);
-    console.log(`Version 5 Running on host ${os.hostname()}`);
+    console.log(`Version 6 Running on host ${os.hostname()}`);
 });
 
 /*
@@ -51,13 +51,34 @@ const gracefulShutdown = (signal) => {
 
         console.log("[SHUTDOWN] All existing connections completed.");
 
-        console.log("[SHUTDOWN] Application shutting down.");
+        let remainingSeconds = 55;
 
-        setTimeout(() => {
-            console.log("[SHUTDOWN] Application shutting down.");
-            process.exit(0);
+        console.log(
+            `[SHUTDOWN] Waiting ${remainingSeconds} seconds before exit...`
+        );
 
-        }, 10000);
+        const countdown = setInterval(() => {
+
+            remainingSeconds--;
+
+            if (remainingSeconds > 0) {
+
+                console.log(
+                    `[SHUTDOWN] ${remainingSeconds} seconds remaining...`
+                );
+
+            } else {
+
+                clearInterval(countdown);
+
+                console.log(
+                    "[SHUTDOWN] Application shutting down."
+                );
+
+                process.exit(0);
+            }
+
+        }, 1000);
     });
 
     // Safety timeout
