@@ -10,4 +10,4 @@ EXPOSE 8080
 
 USER node
 
-CMD ["npm", "start"]
+CMD ["node", "server.js"]

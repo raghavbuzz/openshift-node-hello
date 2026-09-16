@@ -52,7 +52,11 @@ const gracefulShutdown = (signal) => {
 
         console.log("[SHUTDOWN] Application shutting down.");
 
-        process.exit(0);
+        setTimeout(() => {
+            console.log("[SHUTDOWN] Application shutting down.");
+            process.exit(0);
+
+        }, 10000);
     });
 
     // Safety timeout
