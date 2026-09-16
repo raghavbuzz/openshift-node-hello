@@ -1,0 +1,12 @@
+{
+  "name": "openshift-node-hello",
+  "version": "1.0.0",
+  "description": "Hello World Node.js application for OpenShift",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
