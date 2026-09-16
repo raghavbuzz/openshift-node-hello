@@ -33,6 +33,7 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on port ${PORT}`);
+    console.log(`Version 5 Running on host ${os.hostname()}`);
 });
 
 /*
